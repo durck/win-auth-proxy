@@ -1,0 +1,15 @@
+version: 0.1.{build}
+clone_folder: C:\GOPATH\src\github.com\qichaozhao\authentication-proxy
+environment:
+  GOPATH: C:\GOPATH\src
+build_script:
+- cmd: >-
+    go get -v -t github.com/qichaozhao/authentication-proxy/
+
+
+    7z a authentication-proxy.zip %GOPATH%\bin\authentication-proxy.exe
+test_script:
+- cmd: go test -v -cover ./...
+artifacts:
+- path: authentication-proxy.zip
+  name: executableArchive
